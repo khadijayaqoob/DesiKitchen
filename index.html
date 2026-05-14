@@ -516,6 +516,167 @@
         grid-template-columns: 1fr;
       }
     }
+    /* ── MOBILE FIX ── */
+
+/* Fix overall page overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix nav on mobile */
+@media (max-width: 768px) {
+
+  /* Hide nav links on small screens */
+  nav ul {
+    display: none;
+  }
+
+  /* Make logo smaller */
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  /* Show hamburger menu button */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: var(--green);
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  /* Mobile menu dropdown */
+  nav ul.open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 16px 0;
+    gap: 0;
+    z-index: 200;
+  }
+
+  nav ul.open li {
+    width: 100%;
+  }
+
+  nav ul.open li a {
+    display: block;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  nav ul.open li a:hover {
+    background-color: var(--cream);
+    color: var(--green);
+  }
+
+  /* Fix page banner text */
+  .page-banner h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .page-banner p {
+    font-size: 0.92rem;
+  }
+
+  /* Fix featured section */
+  .featured-inner {
+    flex-direction: column;
+  }
+
+  .feat-img img {
+    height: 220px !important;
+  }
+
+  .feat-content {
+    padding: 24px !important;
+  }
+
+  /* Fix cards */
+  .recipes-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix tips */
+  .tips-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix footer */
+  .footer-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix modal */
+  .modal-body {
+    padding: 16px !important;
+  }
+
+  .modal-img img {
+    height: 200px !important;
+  }
+
+  .modal-ingredients {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-body h2 {
+    font-size: 1.4rem !important;
+  }
+
+  /* Fix occasion strip */
+  .occasion-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Fix stats strip */
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Fix spotlight cards */
+  .spotlight-card {
+    flex-direction: column !important;
+  }
+
+  .spotlight-card img {
+    width: 100% !important;
+    height: 180px !important;
+  }
+
+  /* Fix spice grid */
+  .spice-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Fix filter bar */
+  .filter-bar {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
   </style>
 </head>
 
@@ -526,18 +687,25 @@
 
   <!-- Header -->
   <header>
-    <nav>
-      <div class="logo">Desi<span>Kitchen</span></div>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="breakfast.html">Breakfast</a></li>
-        <li><a href="dinner.html">Dinner</a></li>
-        <li><a href="desserts.html">Desserts</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <div class="logo">Desi<span>Kitchen</span></div>
 
+    <!-- ✅ Hamburger button — only shows on mobile -->
+    <button class="hamburger" id="hamburger" style="display:none;" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="breakfast.html">Breakfast</a></li>
+      <li><a href="dinner.html">Dinner</a></li>
+      <li><a href="desserts.html">Desserts</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
   <!-- Hero Section -->
   <main>
     <section class="hero" aria-label="Hero Section">
@@ -695,6 +863,22 @@
       <p>&copy; 2025 DesiKitchen. All rights reserved. | Pakistani Food Recipes</p>
     </div>
   </footer>
+  <script>
+  /* ── HAMBURGER MENU ── */
+  function toggleMenu() {
+    var menu = document.getElementById('navMenu');
+    var hamburger = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+  }
+
+  /* Close menu when a link is clicked */
+  var navLinks = document.querySelectorAll('#navMenu a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('navMenu').classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
