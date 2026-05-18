@@ -1,0 +1,132 @@
+# ============================================
+# robots.txt for DesiKitchen
+# Pakistani Food Recipes Website
+# Website: https://khadijayaqoob.github.io/DesiKitchen/
+# Created: 2025
+# ============================================
+
+
+# ============================================
+# SECTION 1 — ALLOW ALL SEARCH ENGINES
+# ============================================
+
+User-agent: *
+Allow: /
+
+
+# ============================================
+# SECTION 2 — ALLOW ALL WEBSITE PAGES
+# ============================================
+
+User-agent: *
+Allow: /index.html
+Allow: /breakfast.html
+Allow: /dinner.html
+Allow: /desserts.html
+Allow: /contact.html
+
+
+# ============================================
+# SECTION 3 — ALLOW IMAGES FOLDER
+# (Important for Google Image Search SEO)
+# ============================================
+
+User-agent: *
+Allow: /images/
+
+
+# ============================================
+# SECTION 4 — BLOCK PRIVATE FOLDERS
+# (If you add these folders later)
+# ============================================
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /temp/
+Disallow: /backup/
+
+
+# ============================================
+# SECTION 5 — GOOGLE BOTS
+# ============================================
+
+# Google Main Search Bot
+User-agent: Googlebot
+Allow: /
+
+# Google Image Bot
+# Allows your food photos to appear in Google Images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Google Mobile Bot
+User-agent: Googlebot-Mobile
+Allow: /
+
+
+# ============================================
+# SECTION 6 — OTHER SEARCH ENGINE BOTS
+# ============================================
+
+# Bing (Microsoft)
+User-agent: Bingbot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex (Russian Search Engine)
+User-agent: YandexBot
+Allow: /
+
+# Baidu (Chinese Search Engine)
+User-agent: Baiduspider
+Allow: /
+
+
+# ============================================
+# SECTION 7 — BLOCK BAD BOTS
+# (These bots waste your crawl budget)
+# ============================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+
+# ============================================
+# SECTION 8 — CRAWL DELAY
+# (Tells bots to wait between visits)
+# ============================================
+
+User-agent: *
+Crawl-delay: 10
+
+
+# ============================================
+# SECTION 9 — SITEMAP LOCATION
+# (Most important line for SEO)
+# ============================================
+
+Sitemap: https://khadijayaqoob.github.io/DesiKitchen//sitemap.xml
